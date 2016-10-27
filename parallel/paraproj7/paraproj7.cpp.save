@@ -1,0 +1,89 @@
+#include <stdio.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <omp.h>
+#ifdef WIN32
+#include <windows.h>
+#endif
+#ifdef WIN32
+#include "glew.h"
+#endif
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include "glut.h"
+#include "glui.h"
+#include “CL/cl.h"
+#include “CL/cl_gl.h"
+
+
+struct xyzw{float x, y, z, w;};
+struct rgba{float r, g, b, a;};//Structures We Will Use to Fill the Vertex Buffers
+
+size_t  GlobalWorkSize[3]  =  { NUM_PARTICLES, 1, 1 };
+size_tLocalWorkSize[3]  =  { LOCAL_SIZE,         1, 1 };
+gluinthPobj;// host opengl object for Points
+gluinthCobj;// host opengl object for Colors
+struct xyzw *hVel;// host C++ array for Velocities
+cl_memdPobj;// device memory buffer for Points
+cl_memdCobj;// device memory buffer for Colors
+cl_memdVel;// device memory buffer for Velocities
+cl_command_queueCmdQueue;
+cl_device_idDevice;
+cl_kernelKernel;
+cl_platform_idPlatform;
+cl_programProgram;
+ 
+bool IsCLExtensionSupported( const char *extension )
+{// see if the extension is bogus:
+if( extension == NULL  ||  extension[0] == '\0' )
+return false;
+char * where = (char *) strchr( extension, ' ' );
+if( where != NULL )return false;// get the full list of extensions:
+size_t  extensionSize;clGetDeviceInfo( Device, CL_DEVICE_EXTENSIONS, 0, NULL, &extensionSize );
+char *extensions = new char [ extensionSize ];
+clGetDeviceInfo( Device, CL_DEVICE_EXTENSIONS, extensionSize, extensions, NULL );
+for(  char * start = extensions ;  ;  )
+{where = (char *) strstr( (const char *) start, extension );
+if( where == 0 ){
+delete [ ] extensions;
+return false;
+}
+char * terminator = where + strlen(extension);  // points to what should be the separatorif( *terminator == ' '  ||  *terminator == '\0'  ||  *terminator == '\r'  ||  *terminator == '\n' ){delete [ ] extensions;return true;}start = terminator;}}Querying the Existence of an OpenCL Extension
+
+
+
+
+
+void InitCL()
+{
+
+voidInitCL( ){
+status = clGetDeviceIDs( Platform, CL_DEVICE_TYPE_GPU, 1, &Device, NULL );
+PrintCLError( status, "clGetDeviceIDs: " );// since this is an opengl interoperability program,// check if the opengl sharing extension is supported// (no point going on if it isn’t):// (we need the Device in order to ask, so we can't do it any sooner than right here)
+if(  IsCLExtensionSupported( "cl_khr_gl_sharing" )  )
+{
+fprintf( stderr, "cl_khr_gl_sharing is supported.\n" );
+}
+else
+{
+fprintf( stderr, "cl_khr_gl_sharing is not supported -- sorry.\n" );
+return;
+}
+
+
+int main(int argc, char *argv[])
+{
+	glutInit(&argc,argv);
+	InitGraphics();
+	InitLists();
+	InitCL();
+	Reset();
+	InitGlui();
+	glutMainLoop();
+	return 0 ;
+}
+
+

@@ -1,0 +1,6 @@
+ARRAYSIZE = 1000
+performance is 21.885496
+ARRAYSIZE = 10000
+performance is 34.042776
+ARRAYSIZE = 1000000
+performance is 38.929007

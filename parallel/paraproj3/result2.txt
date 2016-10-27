@@ -1,0 +1,45 @@
+NUMT = 1
+NUM = 0
+total time taken is 33.574752
+Performance is 119.137140
+
+NUMT = 1
+NUM = 100
+total time taken is 33.609320
+Performance is 119.014606
+
+NUMT = 1
+NUM = 500
+total time taken is 33.760763
+Performance is 118.480734
+
+NUMT = 2
+NUM = 0
+total time taken is 16.959446
+Performance is 235.856759
+
+NUMT = 2
+NUM = 100
+total time taken is 16.934087
+Performance is 236.209960
+
+NUMT = 2
+NUM = 500
+total time taken is 16.928425
+Performance is 236.288968
+
+NUMT = 4
+NUM = 0
+total time taken is 8.525804
+Performance is 469.163971
+
+NUMT = 4
+NUM = 100
+total time taken is 8.470127
+Performance is 472.247941
+
+NUMT = 4
+NUM = 500
+total time taken is 8.489069
+Performance is 471.194190
+
