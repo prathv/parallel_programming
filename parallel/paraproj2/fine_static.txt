@@ -1,0 +1,15 @@
+NUMT = 1
+Time taken is 0.123223 
+MegaBodies per second is 16.230718 
+NUMT = 2
+Time taken is 0.079123 
+MegaBodies per second is 25.277066 
+NUMT = 4
+Time taken is 0.122543 
+MegaBodies per second is 16.320860 
+NUMT = 6
+Time taken is 0.132776 
+MegaBodies per second is 15.063018 
+NUMT = 8
+Time taken is 0.149289 
+MegaBodies per second is 13.396798 
