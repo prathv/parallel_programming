@@ -1,0 +1,122 @@
+html, body {
+    margin : 0;
+    height: 100%;
+	background-image : url("rps.jpg");
+	background-repeat : no-repeat;
+	background-size : 100%;
+}
+
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	opacity : 0.7;
+}
+
+li {
+    float: left;
+	border-right : 1px solid black
+}
+
+li:last-child {
+		float : right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+li a:active {
+    background-color: red;
+}
+
+li #active{
+	background-color: #111;
+
+}
+
+
+h1 {
+		text-align :center;
+		font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+}
+
+p {		width : 50%;
+		margin : auto;
+		
+		font-size : 20px;
+		margin-top : 100px;
+		color :  black;
+		font-weight : bold;
+		
+}
+
+
+
+.container {
+			height : 80%;
+			margin : auto;
+			width : 80%;
+}
+
+.form {
+		position : fixed;
+		margin : auto;
+		top : 30%;
+		left: 35%;
+}
+
+#content {
+			background-color : darkgrey;
+		 }
+#content1 {
+			background-color : darkgrey;
+		 }
+		 
+#footer {
+			position :fixed;
+			bottom : 0;
+			color : white;
+			height : 20px;
+			width: 100%;
+			background-color: black;
+			text-align : center;
+}
+
+#info {
+
+	position :fixed; 
+	top : 10%;
+	left : 25%;
+	width :50%;
+	text-align :center;
+}
+
+#accinfo{
+
+	position :fixed; 
+	top : 10%;
+	left : 25%;
+	width :50%;
+	text-align :center;
+}
+
+#newlog{
+
+	position :fixed; 
+	top : 30%;
+	left : 25%;
+	width :50%;
+	text-align :center;
+}
+
